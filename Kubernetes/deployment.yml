@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: frissly-dev-backend
+  name: swigy-frontend
   labels:
-    app: frissly-dev-backend
+    app: swigy-frontend
 spec:
-  serviceName: frissly-dev-backend-service
+  serviceName: swigy-frontend-service
   replicas: 1
   selector:
     matchLabels:
-      app: frissly-dev-backend
+      app: swigy-frontend
   template:
     metadata:
       labels:
-        app: frissly-dev-backend
+        app: swigy-frontend
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - name: frissly-dev-backend
-          image: manoj3003/frissly-k8s-images:3
+        - name: swigy-frontend
+          image: manoj3003/swigy:3
           imagePullPolicy: Always
           ports:
             - containerPort: 4001
