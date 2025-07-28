@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frissly-dev-backend-service
+                name: swigy-frontend-service
                 port:
                   number: 80
