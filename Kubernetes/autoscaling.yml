@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: frissly-dev-backend-hpa
+  name: swigy-frontend-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: StatefulSet
-    name: frissly-dev-backend
+    name: swigy-frontend
   minReplicas: 1
   maxReplicas: 10
   metrics:
