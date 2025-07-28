@@ -1,23 +1,40 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: swiggy-app
+  name: frissly-dev-backend
   labels:
-    app: swiggy-app
+    app: frissly-dev-backend
 spec:
-  replicas: 2
+  serviceName: frissly-dev-backend-service
+  replicas: 1
   selector:
     matchLabels:
-      app: swiggy-app
+      app: frissly-dev-backend
   template:
     metadata:
       labels:
-        app: swiggy-app
+        app: frissly-dev-backend
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-      - name: swiggy-app
-        image: manoj3003/pipelie-cicd:2
-        imagePullPolicy: "Always"
-        ports:
-        - containerPort: 3000
+        - name: frissly-dev-backend
+          image: manoj3003/frissly-k8s-images:3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4001
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 100m
+              memory: 256Mi
+          volumeMounts:
+            - name: volume1
+              mountPath: /opt/backend
+      imagePullSecrets:
+        - name: regcred
+      volumes:
+        - name: volume1
+          persistentVolumeClaim:
+            claimName: ebs-pvc
