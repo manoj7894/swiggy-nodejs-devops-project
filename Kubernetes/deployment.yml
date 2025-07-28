@@ -21,7 +21,7 @@ spec:
           image: manoj3003/swigy:3
           imagePullPolicy: Always
           ports:
-            - containerPort: 4001
+            - containerPort: 3000
           resources:
             requests:
               cpu: 100m
