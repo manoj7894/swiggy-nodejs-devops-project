@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: swiggy-app
+  name: frissly-dev-backend-service
   labels:
-    app: swiggy-app
+    app: frissly-dev-backend
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 4001
   selector:
-    app: swiggy-app
+    app: frissly-dev-backend
