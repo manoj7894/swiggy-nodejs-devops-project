@@ -18,7 +18,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: swigy-frontend
-          image: manoj3003/swigy:4
+          image: manoj3003/swigy:5
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
