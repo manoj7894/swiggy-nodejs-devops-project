@@ -1,20 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-app-ingress
+  name: swigy-frontend-ingress
+  namespace: frissly
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - ingress.frissly.com
-      secretName: my-app-tls-secret
+  ingressClassName: alb
   rules:
-    - host: ingress.frissly.com
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
