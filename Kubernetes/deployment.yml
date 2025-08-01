@@ -37,4 +37,4 @@ spec:
       volumes:
         - name: volume1
           persistentVolumeClaim:
-            claimName: ebs-pvc
+            claimName: efs-pvc
