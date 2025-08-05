@@ -23,7 +23,7 @@ spec:
           effect: "NoSchedule"
       containers:
         - name: swigy-frontend
-          image: manoj3003/swigy:2
+          image: manoj3003/swigy:4
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
