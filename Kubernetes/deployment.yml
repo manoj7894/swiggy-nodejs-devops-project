@@ -16,9 +16,14 @@ spec:
         app: swigy-frontend
     spec:
       terminationGracePeriodSeconds: 30
+      tolerations:                            # <--- Add this
+        - key: "eks.amazonaws.com/compute-type"
+          operator: "Equal"
+          value: "fargate"
+          effect: "NoSchedule"
       containers:
         - name: swigy-frontend
-          image: manoj3003/swigy:1
+          image: manoj3003/swigy:3
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
