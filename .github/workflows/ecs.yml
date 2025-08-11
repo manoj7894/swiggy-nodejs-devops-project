@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE_NAME: onroute-backend
+      DOCKER_IMAGE_NAME: ecs-backend
 
     steps:
       - name: Checkout code
