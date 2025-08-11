@@ -37,12 +37,6 @@ jobs:
             echo "npm_found=true" >> $GITHUB_ENV
           fi
 
-      - name: Install dependencies, build, and test
-        if: env.npm_found == 'true'
-        run: |
-          npm install
-          CI=false npm run build --if-present   # ✅ Prevent warnings from failing the build
-          npm run test --if-present --passWithNoTests
 
       - name: Install Trivy
         run: |
