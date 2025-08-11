@@ -110,8 +110,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: ap-south-1
-      ECR_REPO_NAME: onroute-uat-docker-repo
-      DOCKER_IMAGE_NAME: onroute-backend
+      ECR_REPO_NAME: frissly-uat-docker-repo
+      DOCKER_IMAGE_NAME: ecs-backend
       IMAGE_TAG: uat
 
     steps:
