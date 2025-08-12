@@ -1,6 +1,5 @@
 name: Node.js Docker Image Deploy into ECR
 
-
 on:
   push:
     branches:
